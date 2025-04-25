@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS yse_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE yse_db;
+CREATE TABLE IF NOT EXISTS sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    amount INT NOT NULL,
+    quantity INT NOT NULL,
+    tax INT NOT NULL,
+    total INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
