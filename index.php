@@ -5,6 +5,14 @@ try {
     exit("DB接続エラー: " . $e->getMessage());
 }
 ?>
+<?php
+$tax = isset($_POST['tax']) ? $_POST['tax'] : 0;
+$total = isset($_POST['total']) ? $_POST['total'] : 0;
+
+echo "税額：￥{$tax}<br>";
+echo "合計：￥{$total}<br>";
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -17,6 +25,9 @@ try {
         <div class="flex justify-between mb-4">
             <form action="update.php" method="post" class="w-full">
                 <input type="text" id="display" name="price" readonly class="w-full text-3xl text-right p-2 border rounded bg-gray-50 mb-2" />
+                    <input type="hidden" name="tax" value="">
+                    <input type="hidden" name="total" value="">
+
                 <div class="grid grid-cols-4 gap-2 mb-2">
                     <button type="button" onclick="addNumber('7')" class="btn">7</button>
                     <button type="button" onclick="addNumber('8')" class="btn">8</button>
@@ -46,3 +57,4 @@ try {
     <script src="js/app.js"></script>
 </body>
 </html>
+
